@@ -1,0 +1,4 @@
+FROM tomcat
+COPY /abctechnological.war /usr/local/tomcat
+EXPOSE [9090]
+CMD ["catalina.sh"]
