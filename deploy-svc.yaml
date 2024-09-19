@@ -6,17 +6,17 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: abc_tech
+      app: abc-tech
   template:
     metadata:
       labels:
-        app: abc_tech
+        app: abc-tech
     spec:
       containers:
-        - name: abc_tech
+        - name: abc-tech-container  # Changed the name here
           image: mdakbarali/abc_tech:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8084
 
 ---
 apiVersion: v1
@@ -25,9 +25,9 @@ metadata:
   name: abc-tech-service
 spec:
   selector:
-    app: abc_tech
+    app: abc-tech
   ports:
     - protocol: TCP
       port: 8080
-      targetPort: 8080
+      targetPort: 8084
   type: NodePort
