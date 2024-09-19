@@ -1,3 +1,4 @@
+apiversion: apps/v1
 kind: Deployment 
 metadata:
  name: abc-tech-deploy 
@@ -24,9 +25,8 @@ metadata:
 spec:
   selecor:
     app: abc_deploy
-
 ports:
  - protocol: TCP
    port: 80 
    targetPort: 8080 
- type: NodePort
+type: NodePort
