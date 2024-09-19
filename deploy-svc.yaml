@@ -16,7 +16,7 @@ spec:
   - name: abc-app 
   image: mdakbarali/abc_tech:latest 
   ports:
-  - containerPort: 8080
+  - containerPort: 8084
 ---
 apiVersion: vi 
 kind: Service 
@@ -28,5 +28,5 @@ spec:
 ports:
  - protocol: TCP
    port: 80 
-   targetPort: 8080 
+   targetPort: 8084
 type: NodePort
