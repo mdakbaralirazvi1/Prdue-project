@@ -1,32 +1,33 @@
-apiVersion: v1
-kind: Deployment 
+apiVersion: apps/v1
+kind: Deployment
 metadata:
- name: abc-tech-deploy 
+  name: abc-tech-deployment
 spec:
- sellictor:
-  matchLabels:
-    app: abc_deploy
- replicas: 3 
- template:
-  metadata: 
-  labels:
-    app: abc_ deploy 
- spec:
-  containers:
-  - name: abc-app 
-  image: mdakbarali/abc_tech:latest 
-  ports:
-  - containerPort: 8084
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abc_tech
+  template:
+    metadata:
+      labels:
+        app: abc_tech
+    spec:
+      containers:
+        - name: abc_tech
+          image: mdakbarali/abc_tech:latest
+          ports:
+            - containerPort: 8080
+
 ---
 apiVersion: v1
-kind: Service 
+kind: Service
 metadata:
-  name: abc-nodeport-svc
+  name: abc-tech-service
 spec:
-  selecor:
-    app: abc_deploy
-ports:
- - protocol: TCP
-   port: 80 
-   targetPort: 8084
-type: NodePort
+  selector:
+    app: abc_tech
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: NodePort
