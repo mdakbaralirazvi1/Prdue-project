@@ -13,7 +13,7 @@ spec:
         app: abc-tech
     spec:
       containers:
-        - name: abc-tech-container  # Changed the name here
+        - name: abc-tech-container
           image: mdakbarali/abc_tech:latest
           ports:
             - containerPort: 8084
@@ -28,6 +28,7 @@ spec:
     app: abc-tech
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8084
+      port: 8084          # This is the port exposed by the service
+      targetPort: 8084    # This is the port on the container
+      nodePort: 32547     # Optional: specify a nodePort if you want a fixed port
   type: NodePort
