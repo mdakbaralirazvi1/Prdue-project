@@ -5,7 +5,7 @@ FROM tomcat
 COPY abc_tech.war /usr/local/apache-tomcat-9.0.95/webapps/
 
 # Expose the default HTTP port for Tomcat
-EXPOSE 9191
+EXPOSE 8005
 
 # Run Tomcat in the foreground
 CMD ["catalina.sh", "run"]
