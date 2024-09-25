@@ -1,8 +1,8 @@
-# Use the official Tomcat image from the Docker Hub
-FROM tomcat
+# Use the official Tomcat 10 image from the Docker Hub
+FROM tomcat:10.1.30
 
 # Copy the WAR file to the webapps directory in Tomcat
-COPY abc_tech.war /usr/local/apache-tomcat-9.0.95/webapps/
+COPY abc_tech.war /usr/local/tomcat/webapps/
 
 # Update server.xml to change the port from 8080 to 8084
 RUN sed -i 's/port="8080"/port="8084"/g' /usr/local/tomcat/conf/server.xml
